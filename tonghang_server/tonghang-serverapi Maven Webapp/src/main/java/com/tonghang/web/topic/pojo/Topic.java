@@ -17,7 +17,7 @@ import javax.persistence.TemporalType;
 
 import org.hibernate.annotations.GenericGenerator;
 
-import com.tonghang.web.common.pojo.Label;
+import com.tonghang.web.label.pojo.Label;
 import com.tonghang.web.user.pojo.User;
 
 @Entity

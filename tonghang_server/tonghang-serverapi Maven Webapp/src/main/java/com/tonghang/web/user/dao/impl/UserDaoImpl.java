@@ -10,18 +10,16 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.stereotype.Repository;
 
-import com.tonghang.web.common.pojo.Label;
 import com.tonghang.web.common.util.Constant;
+import com.tonghang.web.label.pojo.Label;
 import com.tonghang.web.user.dao.UserDao;
 import com.tonghang.web.user.pojo.User;
 
 @Repository("userDao")
 public class UserDaoImpl implements UserDao {
-	private SessionFactory sessionFactory;
 	@Resource(name="sessionFactory")
-	public void setSessionFactory(SessionFactory sessionFactory) {
-		this.sessionFactory = sessionFactory;
-	}
+	private SessionFactory sessionFactory;
+
 	
 	@Override
 	public User findUserById(String client_id) {

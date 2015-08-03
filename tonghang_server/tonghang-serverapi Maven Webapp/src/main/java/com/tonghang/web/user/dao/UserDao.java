@@ -2,7 +2,7 @@ package com.tonghang.web.user.dao;
 
 import java.util.List;
 
-import com.tonghang.web.common.pojo.Label;
+import com.tonghang.web.label.pojo.Label;
 import com.tonghang.web.user.pojo.User;
 
 public interface UserDao {

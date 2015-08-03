@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.tonghang.web.common.controller.BaseController;
-import com.tonghang.web.common.service.LabelService;
+import com.tonghang.web.label.service.LabelService;
 import com.tonghang.web.topic.service.TopicService;
 import com.tonghang.web.user.pojo.User;
 /**

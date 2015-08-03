@@ -17,7 +17,7 @@ public class Constant extends HuanXinUtil{
 	public static final String EMAIL = "邮件已发送";
 	public static final String EXIST = "该邮箱已被注册";
 	
-	public static final String PICTURE_SERVER = "http://114.215.143.83:8080/tonghang-serverapi";
+	public static final String PICTURE_SERVER = "114.215.143.83:8080/tonghang-serverapi";
 	public static final String HUANXIN_URL = "http://a1.easemob.com/tonghang/tonghang/";
 	public static final String IMAGE_PATH = "/images/";
 	public static final String IMAGE_NAME = "sign.jpg";

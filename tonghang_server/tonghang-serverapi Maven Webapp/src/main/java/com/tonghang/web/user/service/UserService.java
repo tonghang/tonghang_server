@@ -13,16 +13,16 @@ import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
 
-import com.tonghang.web.common.dao.LabelDao;
 import com.tonghang.web.common.exception.BaseException;
 import com.tonghang.web.common.exception.LoginException;
-import com.tonghang.web.common.pojo.Label;
 import com.tonghang.web.common.util.CommonMapUtil;
 import com.tonghang.web.common.util.EmailUtil;
 import com.tonghang.web.common.util.HuanXinUtil;
 import com.tonghang.web.common.util.SecurityUtil;
 import com.tonghang.web.common.util.StringUtil;
 import com.tonghang.web.friend.dao.FriendDao;
+import com.tonghang.web.label.dao.LabelDao;
+import com.tonghang.web.label.pojo.Label;
 import com.tonghang.web.topic.dao.TopicDao;
 import com.tonghang.web.topic.pojo.Topic;
 import com.tonghang.web.topic.util.TopicUtil;
@@ -67,6 +67,8 @@ public class UserService {
 					Map<String,Object> usermap = userUtil.userToMapConvertor(user,false);
 					usermap.putAll(CommonMapUtil.baseMsgToMapConvertor());
 					result.put("success", usermap);
+					user.setIsonline("1");
+					userDao.saveOrUpdate(user);
 				}else{
 //					result.put("error", userUtil.messageToMapConvertor(0, "登录失败，密码不正确！"));
 					throw new LoginException("登录失败，用户名或密码错误！");

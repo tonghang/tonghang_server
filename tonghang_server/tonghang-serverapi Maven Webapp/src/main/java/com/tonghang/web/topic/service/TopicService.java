@@ -10,10 +10,10 @@ import javax.annotation.Resource;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.tonghang.web.common.dao.LabelDao;
-import com.tonghang.web.common.pojo.Label;
 import com.tonghang.web.common.util.CommonMapUtil;
 import com.tonghang.web.common.util.HuanXinUtil;
+import com.tonghang.web.label.dao.LabelDao;
+import com.tonghang.web.label.pojo.Label;
 import com.tonghang.web.topic.dao.TopicDao;
 import com.tonghang.web.topic.pojo.Topic;
 import com.tonghang.web.topic.util.TopicUtil;

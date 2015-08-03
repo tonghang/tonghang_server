@@ -42,11 +42,15 @@ public class HuanXinUtil {
 		return token;
 	}
 	
+	/**
+	 * 业务功能：注册时给环信发请求
+	 * @param user(注册时必须的用户信息都封装在这个User中)
+	 */
 	public static void registUser(User user){
 		HttpHeaders header = new HttpHeaders();
 		Map<String,Object> parts = new HashMap<String, Object>();
 		header.add("Content-Type","application/json");
-		parts.put("username", user.getClient_id().replaceAll("-", ""));
+		parts.put("username", user.getClient_id());
 		parts.put("password", user.getPassword());
 		parts.put("nickname", user.getUsername());
 		HttpEntity<Map<String,Object>> requestEntity=
@@ -55,9 +59,9 @@ public class HuanXinUtil {
 	}
 	
 	/**
-	 * 用户修改昵称
-	 * @param username
-	 * @param huanxinusername
+	 * 业务功能：修改昵称时给环信发请求
+	 * @param username(要修改的用户昵称)
+	 * @param huanxinusername(用户唯一标识client_id)
 	 */
 	public static void changeUsername(String username,String huanxinusername){
 		HttpHeaders header = new HttpHeaders();
@@ -71,9 +75,9 @@ public class HuanXinUtil {
 	}
 	
 	/**
-	 * 用户修改密码
-	 * @param password
-	 * @param username
+	 * 业务功能：用户修改密码时给环信发请求
+	 * @param password(要求改的密码)
+	 * @param username(用户唯一标识client_id)
 	 */
 	public static void changePassword(String password,String username){
 		HttpHeaders header = new HttpHeaders();
@@ -87,10 +91,10 @@ public class HuanXinUtil {
 	}
 	
 	/**
-	 * 用户好友关系管理（环信API中 POST加好友DELETE删好友）
-	 * @param my
-	 * @param friend
-	 * @param httpmethod
+	 * 业务功能：用户好友关系管理给环信发请求（环信API中 POST加好友DELETE删好友）
+	 * @param my(使用者的client_id)
+	 * @param friend(使用者要加或者要删除的好友的client_id)
+	 * @param httpmethod(httpMethod是http请求的发送方法，默认有两个POST,DELETE。POST是加好友DELETE是删好友)
 	 */
 	public static void operateFriends(String my,String friend,String httpmethod){
 		HttpHeaders header = new HttpHeaders();
@@ -106,10 +110,10 @@ public class HuanXinUtil {
 	}
 	
 	/**
-	 * 在环信中创建群组（创建话题）
-	 * @param groupname
-	 * @param owner
-	 * @return
+	 * 业务功能：在环信中创建群组（创建话题）时给环信发请求
+	 * @param groupname(群组的关键字subject)
+	 * @param owner(群组创建者的client_id)
+	 * @return 环信会为新创建的群组设置一个huanxin_group_id,这个ID将返回给后台并存在数据库中作为群组唯一标识
 	 */
 	public static String createGroup(String groupname,String owner){
 		HttpHeaders header = new HttpHeaders();

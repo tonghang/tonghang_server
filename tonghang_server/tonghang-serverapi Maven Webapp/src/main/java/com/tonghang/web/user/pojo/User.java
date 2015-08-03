@@ -23,7 +23,7 @@ import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Component;
 
 import com.tonghang.web.common.pojo.FeedBack;
-import com.tonghang.web.common.pojo.Label;
+import com.tonghang.web.label.pojo.Label;
 import com.tonghang.web.topic.pojo.Topic;
 
 /**
@@ -270,6 +270,5 @@ public class User {
 		return "User [client_id=" + client_id + ", username=" + username
 				+ ", labellist=" + labellist+ "]";
 	}
-	
 	
 }

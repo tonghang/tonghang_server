@@ -10,6 +10,7 @@ public class CommonMapUtil {
 		Map<String,Object> result = new HashMap<String, Object>();
 		result.put("sys_time", TimeUtil.getFormatString(new Date()));
 		result.put("pic_server", Constant.PICTURE_SERVER);
+		System.out.println("Constant.PICTURE_SERVER:"+Constant.PICTURE_SERVER);
 		result.put("code", "ok");
 		return result;
 	}

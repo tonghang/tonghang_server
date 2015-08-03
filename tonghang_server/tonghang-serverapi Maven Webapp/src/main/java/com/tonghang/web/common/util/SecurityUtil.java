@@ -9,10 +9,14 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.util.JSONPObject;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
-import com.tonghang.web.common.pojo.Label;
+import com.tonghang.web.label.pojo.Label;
 
 public class SecurityUtil {
 
+	/**
+	 * 获得UUID,并去掉其中的 ‘-’ 字符
+	 * @return
+	 */
 	public static String getUUID(){
 		UUID uuid = UUID.randomUUID();
 		return uuid.toString().replaceAll("-", "");

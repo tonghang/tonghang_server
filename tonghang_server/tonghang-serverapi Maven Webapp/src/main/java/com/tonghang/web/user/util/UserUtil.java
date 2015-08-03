@@ -9,10 +9,10 @@ import javax.annotation.Resource;
 
 import org.springframework.stereotype.Component;
 
-import com.tonghang.web.common.pojo.Label;
 import com.tonghang.web.common.util.CommonMapUtil;
 import com.tonghang.web.common.util.Constant;
 import com.tonghang.web.common.util.TimeUtil;
+import com.tonghang.web.label.pojo.Label;
 import com.tonghang.web.user.pojo.User;
 import com.tonghang.web.user.service.UserService;
 
@@ -22,6 +22,11 @@ public class UserUtil {
 	@Resource(name="userService")
 	private UserService userService;
 	
+	/**
+	 * 该包装方式目前已废弃
+	 * @param users
+	 * @return
+	 */
 	@Deprecated
 	public Map<String,Object> usersToMapConvertor(List<User> users){
 		List<Map<String,Object>> usersmsg = new ArrayList<Map<String,Object>>();
@@ -45,11 +50,18 @@ public class UserUtil {
 			msg.put("birth", u.getBirth());
 			usersmsg.add(msg);
 		}
+		
 		usermap.put("users", usersmsg);
 		result.put("success", usermap);
 		return result;
 	}
 	
+	/**
+	 * 
+	 * @param users(要包装的目标对象List)
+	 * @param client_id(当前用户的client_id,用来判断List中每一个用户对象和当前用户是不是好友关系，关系用is_friend来表示)
+	 * @return
+	 */
 	public Map<String,Object> usersToMapConvertor(List<User> users,String client_id){
 		List<Map<String,Object>> usersmsg = new ArrayList<Map<String,Object>>();
 		Map<String,Object> usermap = CommonMapUtil.baseMsgToMapConvertor();
@@ -71,8 +83,10 @@ public class UserUtil {
 			msg.put("created_at", u.getCreated_at());
 			msg.put("birth", u.getBirth());
 			msg.put("is_friend", userService.isFriend(client_id, u.getClient_id()));
+			System.out.println("usersToMapConvertor: "+usermap.get("pic_server")+Constant.IMAGE_PATH+u.getClient_id()+"/"+Constant.IMAGE_NAME);
 			usersmsg.add(msg);
 		}
+		
 		usermap.put("users", usersmsg);
 		result.put("success", usermap);
 		return result;

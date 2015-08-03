@@ -22,8 +22,8 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
 import com.tonghang.web.common.controller.BaseController;
-import com.tonghang.web.common.pojo.Label;
 import com.tonghang.web.common.util.RequestUtil;
+import com.tonghang.web.label.pojo.Label;
 import com.tonghang.web.user.pojo.User;
 import com.tonghang.web.user.service.UserService;
 

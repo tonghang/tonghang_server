@@ -14,10 +14,11 @@ import com.tonghang.web.user.pojo.User;
 public class RequestUtil {
 
 	/**
-	 * 请求流中读取JSON字符串
+	 * 请求流中读取JSON字符串（目前暂时废弃）
 	 * @param request
 	 * @return
 	 */
+	@Deprecated
 	public static String readRequest(HttpServletRequest request){
 		StringBuilder sb = new StringBuilder();
 		try {
@@ -35,10 +36,11 @@ public class RequestUtil {
 	}
 	
 	/**
-	 * 从请求中读取用户的头像
-	 * @param request
-	 * @param user
-	 * @param picture
+	 * 业务功能：从请求中读取用户的头像
+	 * @param request(请求对象，用来获取服务器路径)
+	 * @param user(用户对象)
+	 * @param picture(图片对象)
+	 * 图片如果存在就覆盖掉，所有图片都叫sign.jpg
 	 */
 	public static void UserImageReceiver(HttpServletRequest request,String client_id, CommonsMultipartFile picture){
 		if(picture!=null){
